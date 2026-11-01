@@ -168,3 +168,39 @@
 @utility animate-pulse-dot {
   animation: pulse-dot 3s ease-in-out infinite;
 }
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  padding: 0.7rem 1.3rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: box-shadow 0.3s, transform 0.2s;
+  &:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in oklab, var(--primary) 50%, transparent);
+  color: var(--color-foreground);
+  padding: 0.7rem 1.3rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: color-mix(in oklab, var(--primary) 12%, transparent);
+  }
+}
