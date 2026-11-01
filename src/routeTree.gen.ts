@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as PilotBenchmarkRouteImport } from './routes/pilot-benchmark'
+import { Route as RedTeamingRouteImport } from './routes/red-teaming'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as WhyUaeRouteImport } from './routes/why-uae'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PilotBenchmarkRoute = PilotBenchmarkRouteImport.update({
+  id: '/pilot-benchmark',
+  path: '/pilot-benchmark',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedTeamingRoute = RedTeamingRouteImport.update({
+  id: '/red-teaming',
+  path: '/red-teaming',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhyUaeRoute = WhyUaeRouteImport.update({
+  id: '/why-uae',
+  path: '/why-uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/methodology': typeof MethodologyRoute
+  '/pilot-benchmark': typeof PilotBenchmarkRoute
+  '/red-teaming': typeof RedTeamingRoute
+  '/services': typeof ServicesRoute
+  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/methodology': typeof MethodologyRoute
+  '/pilot-benchmark': typeof PilotBenchmarkRoute
+  '/red-teaming': typeof RedTeamingRoute
+  '/services': typeof ServicesRoute
+  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/methodology': typeof MethodologyRoute
+  '/pilot-benchmark': typeof PilotBenchmarkRoute
+  '/red-teaming': typeof RedTeamingRoute
+  '/services': typeof ServicesRoute
+  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/methodology'
+    | '/pilot-benchmark'
+    | '/red-teaming'
+    | '/services'
+    | '/why-uae'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/methodology'
+    | '/pilot-benchmark'
+    | '/red-teaming'
+    | '/services'
+    | '/why-uae'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/methodology'
+    | '/pilot-benchmark'
+    | '/red-teaming'
+    | '/services'
+    | '/why-uae'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  MethodologyRoute: typeof MethodologyRoute
+  PilotBenchmarkRoute: typeof PilotBenchmarkRoute
+  RedTeamingRoute: typeof RedTeamingRoute
+  ServicesRoute: typeof ServicesRoute
+  WhyUaeRoute: typeof WhyUaeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pilot-benchmark': {
+      id: '/pilot-benchmark'
+      path: '/pilot-benchmark'
+      fullPath: '/pilot-benchmark'
+      preLoaderRoute: typeof PilotBenchmarkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/red-teaming': {
+      id: '/red-teaming'
+      path: '/red-teaming'
+      fullPath: '/red-teaming'
+      preLoaderRoute: typeof RedTeamingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/why-uae': {
+      id: '/why-uae'
+      path: '/why-uae'
+      fullPath: '/why-uae'
+      preLoaderRoute: typeof WhyUaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  MethodologyRoute: MethodologyRoute,
+  PilotBenchmarkRoute: PilotBenchmarkRoute,
+  RedTeamingRoute: RedTeamingRoute,
+  ServicesRoute: ServicesRoute,
+  WhyUaeRoute: WhyUaeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
