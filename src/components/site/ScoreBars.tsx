@@ -8,7 +8,7 @@ export function ScoreBars({ items }: { items: { label: string; value: number; co
   return (
     <div className="space-y-6">
       {items.map((it) => {
-        const [bg, text] = COLOR[it.color].split(" ");
+        const [bg, text] = (COLOR[it.color] ?? "bg-primary text-primary").split(" ");
         return (
           <div key={it.label}>
             <div className="mb-2 flex items-baseline justify-between gap-4">

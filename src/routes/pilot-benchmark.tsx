@@ -29,6 +29,7 @@ const SETUP: [string, string][] = [
   ["Web search / tools", "Off"],
   ["Criteria", "6 weighted criteria"],
   ["Test dates", "Gemma 1 Oct · Qwen 20 Oct · Llama 31 Oct"],
+  ["Scale", "Whole numbers 0–4"],
 ];
 
 const SLIDES = [

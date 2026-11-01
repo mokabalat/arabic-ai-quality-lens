@@ -26,7 +26,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl topline">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3">
         <Link to="/" aria-label="Arabic AI Quality home">
-          <Logo className="h-11 w-auto" />
+          <Logo className="h-14 w-auto" />
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((n) => (
