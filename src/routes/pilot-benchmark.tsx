@@ -21,7 +21,7 @@ export const Route = createFileRoute("/pilot-benchmark")({
   component: Pilot,
 });
 
-const SETUP = [
+const SETUP: [string, string][] = [
   ["Prompt set", "15 prompts, Q01–Q15"],
   ["Models", "3"],
   ["Testing window", "1–31 October 2026"],

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/why-uae")({
   component: WhyUAE,
 });
 
-const STATS = [
+const STATS: [string, string, string][] = [
   ["100+", "AI use cases deployed across 40+ Abu Dhabi Government entities", "DGE – Abu Dhabi"],
   ["200+", "AI use cases in DGE's pipeline, with 100+ already in use", "DGE & Inception, May 2026"],
   ["90+", "Languages TAMM serves residents in", "DGE 2025 highlights, Jan 2026"],

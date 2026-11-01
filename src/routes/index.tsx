@@ -122,7 +122,7 @@ function Home() {
       <Section eyebrow="What we test" title="Six weighted criteria, set before any output is scored.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CRITERIA.map((c, i) => {
-            const Icon = CRITERIA_ICONS[i];
+            const Icon = CRITERIA_ICONS[i] ?? BookA;
             return (
               <div key={c.name} className="panel panel-hover flex items-center gap-5 p-6">
                 <Icon className="h-7 w-7 shrink-0 text-primary" />
@@ -154,7 +154,7 @@ function Home() {
       <Section eyebrow="Who we support" title="Built for organisations putting Arabic AI in front of people.">
         <div className="grid gap-4 md:grid-cols-5">
           {AUDIENCE.map((a, i) => {
-            const Icon = [Building2, Cpu, MessageSquareText, Layers, Languages][i];
+            const Icon = [Building2, Cpu, MessageSquareText, Layers, Languages][i] ?? Cpu;
             return (
               <div key={a} className="panel p-6">
                 <Icon className="mb-4 h-6 w-6 text-primary" />
