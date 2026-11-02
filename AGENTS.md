@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Site pages share header/footer/section components in src/components/site and page data in src/content/data.ts — keeps content edits in one place.
