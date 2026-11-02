@@ -13,10 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MethodologyRouteImport } from './routes/methodology'
-import { Route as PilotBenchmarkRouteImport } from './routes/pilot-benchmark'
 import { Route as RedTeamingRouteImport } from './routes/red-teaming'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as WhyUaeRouteImport } from './routes/why-uae'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,11 +36,6 @@ const MethodologyRoute = MethodologyRouteImport.update({
   path: '/methodology',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PilotBenchmarkRoute = PilotBenchmarkRouteImport.update({
-  id: '/pilot-benchmark',
-  path: '/pilot-benchmark',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RedTeamingRoute = RedTeamingRouteImport.update({
   id: '/red-teaming',
   path: '/red-teaming',
@@ -53,31 +46,22 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WhyUaeRoute = WhyUaeRouteImport.update({
-  id: '/why-uae',
-  path: '/why-uae',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/methodology': typeof MethodologyRoute
-  '/pilot-benchmark': typeof PilotBenchmarkRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
-  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/methodology': typeof MethodologyRoute
-  '/pilot-benchmark': typeof PilotBenchmarkRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
-  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -85,42 +69,24 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/methodology': typeof MethodologyRoute
-  '/pilot-benchmark': typeof PilotBenchmarkRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
-  '/why-uae': typeof WhyUaeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/methodology'
-    | '/pilot-benchmark'
-    | '/red-teaming'
-    | '/services'
-    | '/why-uae'
+    '/' | '/about' | '/contact' | '/methodology' | '/red-teaming' | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/methodology'
-    | '/pilot-benchmark'
-    | '/red-teaming'
-    | '/services'
-    | '/why-uae'
+    '/' | '/about' | '/contact' | '/methodology' | '/red-teaming' | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/methodology'
-    | '/pilot-benchmark'
     | '/red-teaming'
     | '/services'
-    | '/why-uae'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -128,10 +94,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   MethodologyRoute: typeof MethodologyRoute
-  PilotBenchmarkRoute: typeof PilotBenchmarkRoute
   RedTeamingRoute: typeof RedTeamingRoute
   ServicesRoute: typeof ServicesRoute
-  WhyUaeRoute: typeof WhyUaeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -164,13 +128,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MethodologyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pilot-benchmark': {
-      id: '/pilot-benchmark'
-      path: '/pilot-benchmark'
-      fullPath: '/pilot-benchmark'
-      preLoaderRoute: typeof PilotBenchmarkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/red-teaming': {
       id: '/red-teaming'
       path: '/red-teaming'
@@ -185,13 +142,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/why-uae': {
-      id: '/why-uae'
-      path: '/why-uae'
-      fullPath: '/why-uae'
-      preLoaderRoute: typeof WhyUaeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -200,10 +150,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   MethodologyRoute: MethodologyRoute,
-  PilotBenchmarkRoute: PilotBenchmarkRoute,
   RedTeamingRoute: RedTeamingRoute,
   ServicesRoute: ServicesRoute,
-  WhyUaeRoute: WhyUaeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
