@@ -14,4 +14,14 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("does not expose the temporarily hidden Pilot Benchmark page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/pilot-benchmark").at(-1)?.routeId).toBe(rootRouteId);
+  });
+
+  it("does not expose the removed UAE page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/why-uae").at(-1)?.routeId).toBe(rootRouteId);
+  });
 });

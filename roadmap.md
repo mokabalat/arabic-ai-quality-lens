@@ -1,0 +1,5 @@
+- [x] Update home wording and move UAE content before contact.
+- [x] Remove UAE page and hide Pilot Benchmark access and links.
+- [x] Update email, QA wording, logo size and footer alignment throughout.
+- [x] Simplify methodology and Red Teaming boxes; update About and Contact wording.
+- [x] Verify affected pages, navigation and temporary page visibility.

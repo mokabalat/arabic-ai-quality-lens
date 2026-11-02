@@ -6,6 +6,8 @@ import slide3 from "@/assets/report/slide-3.jpg.asset.json";
 export const Route = createFileRoute("/methodology")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "AI Model Evaluation Methodology | Arabic AI Quality" },
       { name: "description", content: "How we run AI model evaluation: fixed prompts, six weighted criteria, a 0–4 scale, severity caps and an error log for every finding." },
       { property: "og:title", content: "AI Model Evaluation Methodology | Arabic AI Quality" },
@@ -100,7 +102,6 @@ function Methodology() {
           <div className="panel p-6"><p className="font-display text-amber">MAJOR · caps criterion at 2</p><p className="mt-3 text-muted-foreground">Material meaning distortions, omissions, fabricated claims, serious terminology errors or ignored core instructions.</p></div>
           <div className="panel p-6"><p className="font-display text-violet">MINOR</p><p className="mt-3 text-muted-foreground">Objective spelling, grammar or formatting defects. A style preference alone is never an error.</p></div>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground">We do not deduct twice for the same issue.</p>
       </Section>
 
       <Section eyebrow="How scores are calculated">
@@ -108,7 +109,6 @@ function Methodology() {
           <p className="max-w-4xl text-lg">
             Each prompt's percentage is the weighted sum of its applicable criteria, divided by the total weight of those criteria and by 4. A model's overall score is the mean of its prompt percentages. Rankings are only published when all models completed the same prompts.
           </p>
-          <p className="mt-6 font-display text-primary">prompt % = Σ(score × weight) ÷ (Σ weight × 4)</p>
         </div>
       </Section>
 

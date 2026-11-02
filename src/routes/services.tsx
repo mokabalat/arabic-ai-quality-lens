@@ -5,6 +5,8 @@ import { CTA, PageHero, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "LLM Evaluation Services for Arabic AI | Arabic AI Quality" },
       { name: "description", content: "LLM evaluation services in Arabic and English: benchmarking, hallucination and terminology testing, translation evaluation, chatbot testing and AI model validation." },
       { property: "og:title", content: "LLM Evaluation Services for Arabic AI | Arabic AI Quality" },
@@ -41,7 +43,7 @@ const MAIN = [
 const DETAIL = [
   ["Arabic LLM evaluation", "We score the quality of Arabic outputs against a published rubric: linguistic quality, meaning and factual accuracy, instruction-following, terminology, completeness and consistency, and safety. Reviewers read the Arabic; they do not rely on automated metrics alone."],
   ["Arabic LLM testing", "We design the test cases: proofreading, editing, register and dialect, translation, terminology control, ambiguity, formatting limits and embedded instructions. The same prompts go to every model."],
-  ["LLM quality assurance (ArabicLLMQA)", "ArabicLLMQA is our shorthand for Arabic LLM quality assurance: repeatable checks you can run before launch and after every model or prompt change. AI quality assurance applied specifically to Arabic output."],
+  ["LLM quality assurance (Arabic LLM QA)", "Arabic LLM QA is our shorthand for Arabic LLM quality assurance: repeatable checks you can run before launch and after every model or prompt change. AI quality assurance applied specifically to Arabic output."],
   ["AI model validation & evaluation", "Before a model goes into a service, we test it against your use case, your terminology and your communication style, and tell you where human review is still needed. We also compare candidate models side by side."],
   ["Arabic AI translation evaluation", "We test whether translation preserves meaning, terminology, tone and purpose — especially in official decisions, eligibility conditions, service descriptions and marketing — and flag omissions, additions and misleading wording."],
   ["Generative AI testing", "We test generative systems for invented facts, invented procedures, unsupported claims, biased or culturally inappropriate answers, and inconsistent answers to the same question in Arabic and English."],
