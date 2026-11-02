@@ -5,7 +5,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Arabic AI Quality | Arabic LLM Evaluation Specialist" },
-      { name: "description", content: "Arabic AI Quality is an independent Arabic LLM evaluation and quality assurance practice in the UAE, specialising in Arabic–English AI quality." },
+      { name: "description", content: "Arabic AI Quality is an independent consultancy based in the UAE, specialising in Arabic AI and Arabic large language model evaluation for organisations, AI teams and researchers." },
       { property: "og:title", content: "About Arabic AI Quality | Arabic LLM Evaluation Specialist" },
       { property: "og:description", content: "An independent Arabic AI evaluation specialist focused on language, meaning and context." },
     ],
@@ -25,11 +25,14 @@ function About() {
       <PageHero
         eyebrow="About"
         title={<>Arabic AI quality and <span className="text-gradient">LLM evaluation specialist</span></>}
-        intro="Arabic AI Quality is a specialist Arabic LLM evaluation and quality assurance practice focused on the language, meaning and context of AI-generated content."
+        intro={<>
+          <p>Arabic AI Quality is an independent consultancy based in the UAE. We specialise in Arabic AI and Arabic large language model evaluation for organisations, AI teams and researchers who need a careful, credible assessment.</p>
+          <p className="mt-4">The practice is led by an evaluation consultant with professional training in generative AI, LLM evaluation and model performance assessment, focused on Arabic–English quality assurance.</p>
+        </>}
       />
       <Section eyebrow="Profile" title="Language expertise meets structured evaluation">
         <div className="grid gap-8 text-muted-foreground md:grid-cols-2">
-          <p>The practice is led by an AI/LLM evaluation consultant with professional training in generative AI, LLM evaluation and AI model performance assessment, specialising in Arabic–English AI quality assurance.</p>
+          <p>We apply structured Arabic–English quality assurance to AI systems used by organisations in the UAE, with careful attention to linguistic accuracy, meaning and local context.</p>
           <p>That expertise rests on a professional background in Arabic–English translation, editing, copywriting, subtitling, public relations and communications — applied to how AI models understand, translate and communicate in Arabic.</p>
         </div>
       </Section>

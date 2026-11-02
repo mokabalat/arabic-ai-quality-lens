@@ -4,6 +4,7 @@ import { CTA, CircuitLines, Section } from "@/components/site/Layout";
 import { OrbitGraphic } from "@/components/site/OrbitGraphic";
 import { CRITERIA, MODELS } from "@/content/data";
 import { ScoreBars } from "@/components/site/ScoreBars";
+import { UAEContext } from "@/components/site/UAEContext";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,10 +53,9 @@ function Home() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to="/contact" className="btn-primary">Request an evaluation <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/pilot-benchmark" className="btn-outline">Read the pilot benchmark</Link>
             </div>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-display text-xs tracking-[0.25em] text-muted-foreground">
-              <span>· 3 MODELS</span><span>· 15 PROMPTS</span><span>· 6 WEIGHTED CRITERIA</span>
+               <span>· EVALUATING LLM MODELS</span><span>· VARIOUS PROMPTS</span><span>· WEIGHTED CRITERIA</span>
             </div>
           </div>
           <OrbitGraphic />
@@ -66,7 +66,7 @@ function Home() {
       <Section eyebrow="Can people rely on what it says in Arabic?" title="Arabic generative AI is moving into government and business services. We test whether it deserves that trust.">
         <div className="grid gap-8 text-muted-foreground md:grid-cols-2">
           <p>
-            Arabic AI Quality carries out Arabic AI evaluation for assistants, chatbots and translation workflows. We check Arabic and Arabic–English outputs for accuracy, fluency, terminology, cultural fit and hallucination, score them against a fixed rubric, and report what we found with the evidence behind it.
+              Arabic AI Quality carries out Arabic AI evaluation for assistants, chatbots, Arabic conversational AI and translation workflows. We check Arabic and Arabic–English outputs for accuracy, fluency, terminology, cultural fit and hallucination, score them against a fixed rubric, and report what we found with the evidence behind it.
           </p>
           <p>
             Whatever the system — from an ArabicGenAI assistant to an internal drafting tool — the question is the same. AI can produce fluent Arabic while still misunderstanding a question, changing the meaning of an official communication or inventing a government procedure.
@@ -95,9 +95,9 @@ function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
             <p className="eyebrow mb-4">Why Arabic needs its own testing</p>
-            <h2 className="text-3xl font-semibold md:text-4xl">A fluent answer can still be wrong.</h2>
+            <h2 className="text-3xl font-semibold md:text-4xl">Arabic is not an afterthought.</h2>
             <p className="mt-6 text-muted-foreground">
-              A model that performs well in English can still fail in Arabic: in dialect, in formal register, in official terminology, or when a sentence mixes both languages. Only a test built for Arabic, with a reviewer who reads Arabic, catches it.
+              A model that performs well in English can still fail in Arabic: in dialect, in formal register, in official terminology, or when a sentence mixes both languages. Only a test built for Arabic, with a reviewer who masters Arabic, catches it.
             </p>
           </div>
           <div className="panel p-8 topline">
@@ -141,8 +141,6 @@ function Home() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <p className="text-muted-foreground">
             Our completed Arabic LLM Evaluation Benchmark pilot scored three models on the same 15 Arabic and bilingual prompts, using a 0–4 scale. These are results from the specific pilot test set and configurations — not universal model rankings or certification.
-            <br />
-            <Link to="/pilot-benchmark" className="mt-6 inline-flex items-center gap-2 font-display text-sm text-primary">Read the pilot benchmark <ArrowRight className="h-4 w-4" /></Link>
           </p>
           <div className="panel p-8">
             <ScoreBars items={MODELS.map((m) => ({ label: m.name, value: m.score, color: m.color }))} />
@@ -175,6 +173,7 @@ function Home() {
         </div>
       </Section>
 
+      <UAEContext />
       <CTA />
     </>
   );

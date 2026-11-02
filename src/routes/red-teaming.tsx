@@ -24,12 +24,10 @@ function RedTeaming() {
       />
       <Section eyebrow="Test matrix">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {RED_TEAM.map(([t, what, look], i) => (
-            <div key={t} className="panel panel-hover p-7">
+          {RED_TEAM.map(([t], i) => (
+            <div key={t} className="panel panel-hover flex min-h-32 flex-col items-center justify-center p-6 text-center">
               <p className="font-display text-xs tracking-widest text-muted-foreground">RT-0{i + 1}</p>
               <h3 className="mt-2 text-xl font-semibold text-primary">{t}</h3>
-              <p className="mt-4 text-sm"><span className="text-muted-foreground">What we do · </span>{what}</p>
-              <p className="mt-2 text-sm"><span className="text-muted-foreground">What we look for · </span>{look}</p>
             </div>
           ))}
         </div>

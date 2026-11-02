@@ -7,16 +7,14 @@ export const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/methodology", label: "Methodology" },
-  { to: "/pilot-benchmark", label: "Pilot Benchmark" },
   { to: "/red-teaming", label: "Red Teaming" },
-  { to: "/why-uae", label: "Why the UAE" },
   { to: "/about", label: "About" },
 ] as const;
 
-export const EMAIL = "ai@ArabicAiQuality.com";
+export const EMAIL = "Hi@ArabicAIQuality.com";
 export const WHATSAPP_URL = "https://wa.me/971557465252";
 
-export function Logo({ className = "h-10" }: { className?: string }) {
+export function Logo({ className = "h-12" }: { className?: string }) {
   return <img src={logo.url} alt="Arabic AI Quality — Arabic LLMs measured with care" className={className} />;
 }
 
@@ -26,7 +24,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl topline">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3">
         <Link to="/" aria-label="Arabic AI Quality home">
-          <Logo className="h-14 w-auto" />
+          <Logo className="h-16 w-auto max-w-full" />
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((n) => (
@@ -70,12 +68,12 @@ export function SiteFooter() {
     <footer className="relative mt-24 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
-          <Logo className="h-12 w-auto" />
+          <Logo className="h-14 w-auto max-w-full" />
           <p className="max-w-sm text-sm text-muted-foreground">
             Independent Arabic AI and Arabic LLM evaluation consultancy, based in the UAE.
           </p>
           <p className="font-display text-xs tracking-widest text-primary">
-            #ArabicGenAI · #ArabicLLMQA · #ArabicLLMEvaluation
+            #ArabicGenAI · Arabic LLM QA · #ArabicLLMEvaluation
           </p>
         </div>
         <div>
@@ -92,16 +90,16 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="eyebrow mb-4">Contact</p>
-          <a href={`mailto:${EMAIL}`} className="text-sm text-foreground hover:text-primary">
+          <a href={`mailto:${EMAIL}`} className="break-words text-sm text-foreground hover:text-primary">
             {EMAIL}
           </a>
           <p className="mt-2 text-sm text-muted-foreground">United Arab Emirates</p>
         </div>
       </div>
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-xs text-muted-foreground md:flex-row md:justify-between">
+        <div className="mx-auto grid max-w-7xl items-start gap-4 px-6 py-5 text-xs leading-relaxed text-muted-foreground md:grid-cols-2 md:gap-10">
           <span>© {new Date().getFullYear()} Arabic AI Quality · Arabic LLMs measured with care</span>
-          <span className="max-w-xl md:text-right">
+          <span className="w-full md:justify-self-end md:text-right">
             Our pilot benchmark is an independent, descriptive comparison. It is not a certification, an
             industry-wide ranking or a guarantee.
           </span>

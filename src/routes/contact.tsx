@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Request an Arabic AI Evaluation | Arabic AI Quality" },
-      { name: "description", content: "Contact Arabic AI Quality to scope an Arabic LLM evaluation, benchmark or red-team test. Email ai@ArabicAiQuality.com." },
+      { name: "description", content: "Contact Arabic AI Quality for Arabic LLM evaluation, benchmarking and red-team testing in the UAE. Email Hi@ArabicAIQuality.com." },
       { property: "og:title", content: "Request an Arabic AI Evaluation | Arabic AI Quality" },
       { property: "og:description", content: "Let's measure your Arabic AI quality." },
     ],
@@ -49,7 +49,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title={<>Let's measure your <span className="text-gradient">Arabic AI quality</span></>}
-        intro="Whether you are developing an Arabic chatbot, deploying a bilingual AI assistant or evaluating a generative AI solution, we can help define a structured testing and evaluation approach."
+        intro="Whether you are developing an Arabic chatbot, deploying a bilingual AI assistant or evaluating a generative AI solution in the UAE, we can help define a structured testing and evaluation approach."
       />
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
@@ -76,7 +76,7 @@ function Contact() {
             <div className="panel p-8 topline">
               <p className="eyebrow mb-4">Reach us directly</p>
               <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-lg hover:text-primary">
-                <Mail className="h-5 w-5 text-primary" /> {EMAIL}
+                <Mail className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-0 break-words">{EMAIL}</span>
               </a>
               <p className="mt-4 flex items-center gap-3 text-muted-foreground"><MapPin className="h-5 w-5 text-primary" /> United Arab Emirates</p>
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp" className="mt-8 inline-flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-primary-foreground transition-transform hover:scale-110">
