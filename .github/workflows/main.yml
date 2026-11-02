@@ -1,0 +1,30 @@
+yaml
+name: Build Website
+on:
+  push:
+    branches:
+      - main  # Runs every time Lovable updates your code
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static files
+        run: npm run build
+
+      - name: Deploy Build to Production Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder Lovable projects compile into
+          branch: gh-pages # Creates a clean branch just for Hostinger
