@@ -6,6 +6,8 @@ import slide3 from "@/assets/report/slide-3.jpg.asset.json";
 export const Route = createFileRoute("/methodology")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "AI Model Evaluation Methodology | Arabic AI Quality" },
       { name: "description", content: "How we run AI model evaluation: fixed prompts, six weighted criteria, a 0–4 scale, severity caps and an error log for every finding." },
       { property: "og:title", content: "AI Model Evaluation Methodology | Arabic AI Quality" },

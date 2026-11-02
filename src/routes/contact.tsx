@@ -6,6 +6,8 @@ import { EMAIL, PageHero, Section, WHATSAPP_URL } from "@/components/site/Layout
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Request an Arabic AI Evaluation | Arabic AI Quality" },
       { name: "description", content: "Contact Arabic AI Quality for Arabic LLM evaluation, benchmarking and red-team testing in the UAE. Email Hi@ArabicAIQuality.com." },
       { property: "og:title", content: "Request an Arabic AI Evaluation | Arabic AI Quality" },

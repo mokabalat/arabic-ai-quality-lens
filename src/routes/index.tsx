@@ -9,6 +9,8 @@ import { UAEContext } from "@/components/site/UAEContext";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Arabic LLM Evaluation & QA | Arabic AI Quality" },
       { name: "description", content: "Independent Arabic LLM evaluation and AI quality assurance for UAE organisations: accuracy, terminology, hallucination and responsible AI testing." },
       { property: "og:title", content: "Arabic LLM Evaluation & QA | Arabic AI Quality" },

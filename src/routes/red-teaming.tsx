@@ -5,6 +5,8 @@ import { RED_TEAM } from "@/content/data";
 export const Route = createFileRoute("/red-teaming")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "AI & LLM Red Teaming in Arabic | Arabic AI Quality" },
       { name: "description", content: "Generative AI testing by red teaming: hallucination, ambiguity, bilingual consistency, prompt injection, policy compliance and terminology." },
       { property: "og:title", content: "AI & LLM Red Teaming in Arabic | Arabic AI Quality" },

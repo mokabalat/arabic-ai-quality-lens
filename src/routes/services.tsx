@@ -5,6 +5,8 @@ import { CTA, PageHero, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "LLM Evaluation Services for Arabic AI | Arabic AI Quality" },
       { name: "description", content: "LLM evaluation services in Arabic and English: benchmarking, hallucination and terminology testing, translation evaluation, chatbot testing and AI model validation." },
       { property: "og:title", content: "LLM Evaluation Services for Arabic AI | Arabic AI Quality" },

@@ -4,6 +4,8 @@ import { CTA, PageHero, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "About Arabic AI Quality | Arabic LLM Evaluation Specialist" },
       { name: "description", content: "Arabic AI Quality is an independent consultancy based in the UAE, specialising in Arabic AI and Arabic large language model evaluation for organisations, AI teams and researchers." },
       { property: "og:title", content: "About Arabic AI Quality | Arabic LLM Evaluation Specialist" },
