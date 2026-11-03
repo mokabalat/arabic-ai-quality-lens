@@ -1,7 +1,7 @@
 import { mkdtemp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { resolve } from "node:path";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { exportStaticSite, staticPages } from "../../scripts/static-site.mjs";
 
 const temporaryRoots: string[] = [];
@@ -20,6 +20,7 @@ async function fixture() {
 }
 
 afterEach(async () => {
+  vi.unstubAllGlobals();
   await Promise.all(temporaryRoots.splice(0).map((root) => rm(root, { recursive: true, force: true })));
 });
 
@@ -47,5 +48,16 @@ describe("Static Apache export", () => {
     const root = await fixture();
     await rm(resolve(root, "dist/client/contact/index.html"));
     await expect(exportStaticSite(root)).rejects.toThrow();
+  });
+
+  it("includes hosted image bytes at their existing URLs for Apache", async () => {
+    const root = await fixture();
+    const url = "/__l5e/assets-v1/example-id/logo.svg";
+    await writeFile(resolve(root, "dist/client/assets/site.js"), `const logo = "${url}";`);
+    const download = vi.fn().mockResolvedValue(new Response("<svg></svg>", { headers: { "content-type": "image/svg+xml" } }));
+    vi.stubGlobal("fetch", download);
+    const destination = await exportStaticSite(root);
+    expect(download).toHaveBeenCalledWith(`https://arabic-ai-quality-lens.lovable.app${url}`);
+    expect(await readFile(resolve(destination, `.${url}`), "utf8")).toBe("<svg></svg>");
   });
 });
