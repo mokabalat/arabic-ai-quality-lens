@@ -29,6 +29,7 @@ export function UAEContext() {
             50% of government services in the UAE will be through AI agents, with continuous monitoring and audit — and AI must earn trust before it is given wider authority.
           </blockquote>
           <p className="mt-6 font-arabic text-lg text-primary" dir="rtl">50% من الخدمات الحكومية عبر وكلاء الذكاء الاصطناعي خلال عامين</p>
+          <figcaption className="mt-2 text-sm text-muted-foreground">Al Bayan</figcaption>
         </figure>
       </Section>
       <Section eyebrow="What this means for testing" title="One wrong answer now reaches more people.">
