@@ -24,3 +24,33 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Static hosting on Apache / Hostinger
+
+After installing dependencies with `npm install`, run from the project root:
+
+```sh
+npm run build
+```
+
+The complete upload folder is **`dist/static/`** (relative to the project root).
+Upload its contents, including `.htaccess`, into Hostinger's `public_html/`.
+It contains `index.html`, `assets/`, the public files, and prerendered HTML
+for `/about`, `/contact`, `/methodology`, `/red-teaming`, and `/services`.
+Apache serves the page directories directly; no SPA rewrite or Node server is needed.
+Host the site at the domain root, not a subfolder. Keep hidden files enabled in
+your upload tool so `.htaccess` is included.
+
+The framework uses a server **during the build** to generate HTML, but the
+uploaded `dist/static/` contains no server runtime. Do not upload `dist/server/`
+or the whole `dist/` directory. The export fails if any listed page is missing.
+
+The Lovable preview and `npm run dev` remain unchanged. No styling, content,
+animation, navigation, or contact features are changed by the export.
+There are no application server functions, API routes, or server-side secrets;
+the contact form opens an email draft rather than sending via a server.
+Email/WhatsApp links and external Google Fonts still require their respective
+apps/services, just as they do in the preview.
+
+When adding a public content page, add its path to `staticPages` in
+`scripts/static-site.mjs` so the next build exports it too.

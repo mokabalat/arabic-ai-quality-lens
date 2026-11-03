@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 - Site pages share header/footer/section components in src/components/site and page data in src/content/data.ts — keeps content edits in one place.
 - UAE context is a home-only section component; temporarily hidden page source is archived outside src/routes so it is not publicly routable and can be restored later.
+- Prerender every public content route listed in scripts/static-site.mjs and export only dist/client into dist/static after the build; Apache needs only HTML/assets while Lovable retains its normal development/server pipeline.
