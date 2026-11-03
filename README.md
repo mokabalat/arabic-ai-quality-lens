@@ -44,6 +44,10 @@ your upload tool so `.htaccess` is included.
 The framework uses a server **during the build** to generate HTML, but the
 uploaded `dist/static/` contains no server runtime. Do not upload `dist/server/`
 or the whole `dist/` directory. The export fails if any listed page is missing.
+The export also downloads the images referenced by the compiled site into
+`dist/static/__l5e/assets-v1/`, preserving their URLs and appearance without
+requiring Lovable's image-serving service on Apache. Internet access is needed
+at build time for these downloads; an unavailable image causes the export to fail.
 
 The Lovable preview and `npm run dev` remain unchanged. No styling, content,
 animation, navigation, or contact features are changed by the export.

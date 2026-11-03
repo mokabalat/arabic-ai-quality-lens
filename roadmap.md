@@ -3,5 +3,5 @@
 - [x] Update email, QA wording, logo size and footer alignment throughout.
 - [x] Simplify methodology and Red Teaming boxes; update About and Contact wording.
 - [x] Verify affected pages, navigation and temporary page visibility.
-- [ ] Configure and verify a fully static Apache export without changing preview or design.
-- [ ] Audit static hosting dependencies and document the exact build command/output folder.
+- [x] Configure a fully static Apache export; verify export safeguards and unchanged preview/navigation/contact flow.
+- [x] Audit static hosting dependencies and document the exact build command/output folder.
