@@ -26,9 +26,9 @@ export function UAEContext() {
         </div>
         <figure className="mt-10 border-l-2 border-primary pl-6 md:pl-8">
           <blockquote className="text-xl md:text-2xl">
-            Minister of State for AI Omar Al Olama said the target is to deliver 50% of government services through AI agents, with continuous monitoring and audit — and that AI must earn trust before it is given wider authority.
+            50% of government services in the UAE will be through AI agents, with continuous monitoring and audit — and AI must earn trust before it is given wider authority.
           </blockquote>
-          <p className="mt-6 font-arabic text-lg text-primary" dir="rtl">عمر العلماء: 50% من الخدمات الحكومية عبر وكلاء الذكاء الاصطناعي خلال عامين</p>
+          <p className="mt-6 font-arabic text-lg text-primary" dir="rtl">50% من الخدمات الحكومية عبر وكلاء الذكاء الاصطناعي خلال عامين</p>
           <figcaption className="mt-2 text-sm text-muted-foreground">Al Bayan</figcaption>
         </figure>
       </Section>
