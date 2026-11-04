@@ -35,12 +35,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-const SUBMIT_ENDPOINT =
-  typeof window !== "undefined" &&
-  !window.location.hostname.endsWith(".lovable.app") &&
-  !/^localhost$|^127(\.\d+){3}$/.test(window.location.hostname)
-    ? "https://arabic-ai-quality-lens.lovable.app/api/public/contact-submissions"
-    : "/api/public/contact-submissions";
+// Web3Forms delivers submissions to hi@arabicaiquality.com; its access key is public by design.
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = "6e7cfa6f-ed51-43d9-ac7f-b9dd2805f056";
 
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
@@ -48,16 +45,29 @@ function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const payload = Object.fromEntries(FIELDS.map(([k]) => [k, String(data.get(k) ?? "").trim()]));
-    payload["message"] = String(data.get("message") ?? "").trim();
+    const get = (k: string) => String(data.get(k) ?? "").trim();
+    if (get("botcheck")) return; // honeypot filled: silently ignore bots
+    const details = FIELDS.filter(([k]) => k !== "name" && k !== "email" && get(k))
+      .map(([k, l]) => `${l}: ${get(k)}`)
+      .join("\n");
+    const message = [details, get("message")].filter(Boolean).join("\n\n") || "(no message)";
     setStatus("sending");
     try {
-      const res = await fetch(SUBMIT_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New website enquiry from ${get("name")}`,
+          from_name: "Arabic AI Quality website",
+          name: get("name"),
+          email: get("email"),
+          message,
+          botcheck: "",
+        }),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      const result = await res.json().catch(() => null);
+      if (!res.ok || !result?.success) throw new Error(String(res.status));
       setStatus("sent");
       form.reset();
     } catch {
@@ -86,6 +96,7 @@ function Contact() {
               <span className="text-muted-foreground">Message (optional)</span>
               <textarea name="message" rows={4} className="mt-2 w-full rounded-md border border-input bg-surface px-3 py-2.5 text-foreground outline-none focus:border-primary" />
             </label>
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
             <p className="text-xs text-muted-foreground sm:col-span-2">Please do not send real personal or sensitive data.</p>
             <div className="sm:col-span-2">
               <button type="submit" disabled={status === "sending"} className="btn-primary disabled:opacity-60">
@@ -98,7 +109,7 @@ function Contact() {
               )}
               {status === "failed" && (
                 <p className="mt-3 text-sm text-destructive">
-                  Something went wrong. Please email us directly at{" "}
+                  Sorry, your enquiry could not be sent. Please try again, or email us directly at{" "}
                   <a href={`mailto:${EMAIL}`} className="underline">
                     {EMAIL}
                   </a>
