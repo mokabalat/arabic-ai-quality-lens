@@ -24,7 +24,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl topline">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3">
         <Link to="/" aria-label="Arabic AI Quality home">
-          <Logo className="h-16 w-auto max-w-full" />
+          <Logo className="h-[4.5rem] w-auto max-w-full" />
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((n) => (
@@ -68,7 +68,7 @@ export function SiteFooter() {
     <footer className="relative mt-24 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
-          <Logo className="h-14 w-auto max-w-full" />
+          <Logo className="h-16 w-auto max-w-full" />
           <p className="max-w-sm text-sm text-muted-foreground">
             Independent Arabic AI and Arabic LLM evaluation consultancy, based in the UAE.
           </p>
