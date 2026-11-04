@@ -35,15 +35,34 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
+const SUBMIT_ENDPOINT =
+  typeof window !== "undefined" &&
+  !window.location.hostname.endsWith(".lovable.app") &&
+  !/^localhost$|^127(\.\d+){3}$/.test(window.location.hostname)
+    ? "https://arabic-ai-quality-lens.lovable.app/api/public/contact-submissions"
+    : "/api/public/contact-submissions";
+
 function Contact() {
-  const [sent, setSent] = useState(false);
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = [...FIELDS.map(([k, l]) => `${l}: ${data.get(k) ?? ""}`), "", `Message: ${data.get("message") ?? ""}`].join("\n");
-    const subject = `Evaluation enquiry — ${data.get("organisation") || data.get("name")}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = Object.fromEntries(FIELDS.map(([k]) => [k, String(data.get(k) ?? "").trim()]));
+    payload["message"] = String(data.get("message") ?? "").trim();
+    setStatus("sending");
+    try {
+      const res = await fetch(SUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("failed");
+    }
   }
 
   return (
@@ -69,8 +88,23 @@ function Contact() {
             </label>
             <p className="text-xs text-muted-foreground sm:col-span-2">Please do not send real personal or sensitive data.</p>
             <div className="sm:col-span-2">
-              <button type="submit" className="btn-primary">Send enquiry</button>
-              {sent && <p className="mt-3 text-sm text-primary">Your email app should open with your enquiry ready to send.</p>}
+              <button type="submit" disabled={status === "sending"} className="btn-primary disabled:opacity-60">
+                {status === "sending" ? "Sending…" : "Send enquiry"}
+              </button>
+              {status === "sent" && (
+                <p className="mt-3 text-sm text-primary">
+                  Thank you — your enquiry has been sent to {EMAIL}. We will reply shortly.
+                </p>
+              )}
+              {status === "failed" && (
+                <p className="mt-3 text-sm text-destructive">
+                  Something went wrong. Please email us directly at{" "}
+                  <a href={`mailto:${EMAIL}`} className="underline">
+                    {EMAIL}
+                  </a>
+                  .
+                </p>
+              )}
             </div>
           </form>
 

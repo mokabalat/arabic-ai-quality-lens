@@ -10,10 +10,10 @@ export function OrbitGraphic() {
   ];
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[460px]" aria-hidden>
-      <div className="absolute inset-0 rounded-full border border-primary/30 animate-spin-slow" style={{ borderStyle: "dashed" }} />
+      <div className="absolute inset-0 rounded-full border-2 border-primary/70 animate-spin-slow" style={{ borderStyle: "dashed" }} />
       <div className="absolute inset-[10%] rounded-full border border-violet/40" />
       <div className="absolute inset-[30%] rounded-full border-2 border-primary/70 bg-card shadow-[var(--shadow-glow)]" />
-      <div className="absolute inset-[34%] rounded-full border border-dashed border-primary/30 animate-spin-slower" />
+      <div className="absolute inset-[34%] rounded-full border-2 border-dashed border-primary/70 animate-spin-slower" />
       <div className="absolute inset-[30%] flex flex-col items-center justify-center">
         <svg viewBox="0 0 64 64" className="h-1/2 w-1/2" fill="none" stroke="var(--color-primary)" strokeWidth="2">
           <path d="M32 8v48M20 16l12 10 12-10M18 32h28M20 48l12-10 12 10" strokeLinecap="round" />
