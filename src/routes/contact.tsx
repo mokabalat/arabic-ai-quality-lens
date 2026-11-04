@@ -36,7 +36,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const SUBMIT_ENDPOINT =
-  typeof window !== "undefined" && !window.location.hostname.endsWith(".lovable.app")
+  typeof window !== "undefined" &&
+  !window.location.hostname.endsWith(".lovable.app") &&
+  !/^localhost$|^127(\.\d+){3}$/.test(window.location.hostname)
     ? "https://arabic-ai-quality-lens.lovable.app/api/public/contact-submissions"
     : "/api/public/contact-submissions";
 
