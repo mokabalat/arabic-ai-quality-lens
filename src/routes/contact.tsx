@@ -49,7 +49,7 @@ function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = Object.fromEntries(FIELDS.map(([k]) => [k, String(data.get(k) ?? "").trim()]));
-    payload.message = String(data.get("message") ?? "").trim();
+    payload["message"] = String(data.get("message") ?? "").trim();
     setStatus("sending");
     try {
       const res = await fetch(SUBMIT_ENDPOINT, {
