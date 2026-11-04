@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as RedTeamingRouteImport } from './routes/red-teaming'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ApiPublicContactSubmissionsRouteImport } from './routes/api/public/contact-submissions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,12 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicContactSubmissionsRoute =
+  ApiPublicContactSubmissionsRouteImport.update({
+    id: '/api/public/contact-submissions',
+    path: '/api/public/contact-submissions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByFullPath {
   '/methodology': typeof MethodologyRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
+  '/api/public/contact-submissions': typeof ApiPublicContactSubmissionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +70,7 @@ export interface FileRoutesByTo {
   '/methodology': typeof MethodologyRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
+  '/api/public/contact-submissions': typeof ApiPublicContactSubmissionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,14 +80,27 @@ export interface FileRoutesById {
   '/methodology': typeof MethodologyRoute
   '/red-teaming': typeof RedTeamingRoute
   '/services': typeof ServicesRoute
+  '/api/public/contact-submissions': typeof ApiPublicContactSubmissionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/methodology' | '/red-teaming' | '/services'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/methodology'
+    | '/red-teaming'
+    | '/services'
+    | '/api/public/contact-submissions'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/contact' | '/methodology' | '/red-teaming' | '/services'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/methodology'
+    | '/red-teaming'
+    | '/services'
+    | '/api/public/contact-submissions'
   id:
     | '__root__'
     | '/'
@@ -87,6 +109,7 @@ export interface FileRouteTypes {
     | '/methodology'
     | '/red-teaming'
     | '/services'
+    | '/api/public/contact-submissions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -96,6 +119,7 @@ export interface RootRouteChildren {
   MethodologyRoute: typeof MethodologyRoute
   RedTeamingRoute: typeof RedTeamingRoute
   ServicesRoute: typeof ServicesRoute
+  ApiPublicContactSubmissionsRoute: typeof ApiPublicContactSubmissionsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -142,6 +166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/contact-submissions': {
+      id: '/api/public/contact-submissions'
+      path: '/api/public/contact-submissions'
+      fullPath: '/api/public/contact-submissions'
+      preLoaderRoute: typeof ApiPublicContactSubmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -152,6 +183,7 @@ const rootRouteChildren: RootRouteChildren = {
   MethodologyRoute: MethodologyRoute,
   RedTeamingRoute: RedTeamingRoute,
   ServicesRoute: ServicesRoute,
+  ApiPublicContactSubmissionsRoute: ApiPublicContactSubmissionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
