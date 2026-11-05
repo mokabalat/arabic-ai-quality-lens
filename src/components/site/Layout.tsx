@@ -5,10 +5,10 @@ import logo from "@/assets/logo.svg.asset.json";
 
 export const NAV = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/methodology", label: "Methodology" },
-  { to: "/red-teaming", label: "Red Teaming" },
-  { to: "/about", label: "About" },
+  { to: "/services/", label: "Services" },
+  { to: "/methodology/", label: "Methodology" },
+  { to: "/red-teaming/", label: "Red Teaming" },
+  { to: "/about/", label: "About" },
 ] as const;
 
 export const EMAIL = "Hi@ArabicAIQuality.com";
@@ -37,7 +37,7 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <Link to="/contact" className="btn-primary ml-3">
+          <Link to="/contact/" className="btn-primary ml-3">
             Contact
           </Link>
         </nav>
@@ -47,7 +47,7 @@ export function SiteHeader() {
       </div>
       {open && (
         <nav className="flex flex-col border-t border-border px-6 py-4 lg:hidden">
-          {[...NAV, { to: "/contact", label: "Contact" } as const].map((n) => (
+          {[...NAV, { to: "/contact/", label: "Contact" } as const].map((n) => (
             <Link
               key={n.to}
               to={n.to}
@@ -146,7 +146,7 @@ export function CTA({ title = "Is your AI getting Arabic right?", text = "Tell u
             <h2 className="text-3xl font-semibold md:text-4xl">{title}</h2>
             <p className="mt-3 max-w-xl text-muted-foreground">{text}</p>
           </div>
-          <Link to="/contact" className="btn-primary">
+          <Link to="/contact/" className="btn-primary">
             Request an evaluation
           </Link>
         </div>

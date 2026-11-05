@@ -57,7 +57,7 @@ function Home() {
               Independent Arabic AI testing, linguistic evaluation and quality assessment — for assistants, chatbots and translation workflows across the UAE.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary">Request an evaluation <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/contact/" className="btn-primary">Request an evaluation <ArrowRight className="h-4 w-4" /></Link>
             </div>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-display text-xs tracking-[0.25em] text-muted-foreground">
                <span>· EVALUATING LLM MODELS</span><span>· VARIOUS PROMPTS</span><span>· WEIGHTED CRITERIA</span>
@@ -92,7 +92,7 @@ function Home() {
             </div>
           ))}
         </div>
-        <Link to="/services" className="mt-8 inline-flex items-center gap-2 font-display text-sm text-primary">All services <ArrowRight className="h-4 w-4" /></Link>
+        <Link to="/services/" className="mt-8 inline-flex items-center gap-2 font-display text-sm text-primary">All services <ArrowRight className="h-4 w-4" /></Link>
       </Section>
 
       {/* Why Arabic */}
