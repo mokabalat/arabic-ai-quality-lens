@@ -9,8 +9,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    // Static prerender requests "/about/"; preserving slashes avoids a redirect loop.
-    trailingSlash: "preserve",
+    // Static prerender requests "/about/" and Apache serves folders with a slash; "always" avoids a redirect loop.
+    trailingSlash: "always",
     defaultPreloadStaleTime: 0,
   });
 
