@@ -4,4 +4,5 @@
 - [x] Simplify methodology and Red Teaming boxes; update About and Contact wording.
 - [x] Verify affected pages, navigation and temporary page visibility.
 - [x] Configure a fully static Apache export; verify export safeguards and unchanged preview/navigation/contact flow.
-- [x] Audit static hosting dependencies and document the exact build command/output folder.
+- [x] Audit static hosting dependencies and document the exact build command/output folder.- [x] Contact form via Web3Forms, new favicons, sharing tags.
+- [x] Add sitemap.xml for arabicaiquality.com.
