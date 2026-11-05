@@ -9,6 +9,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Static prerender requests "/about/"; preserving slashes avoids a redirect loop.
+    trailingSlash: "preserve",
     defaultPreloadStaleTime: 0,
   });
 
