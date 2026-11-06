@@ -18,7 +18,7 @@ export function ScoreBars({ items }: { items: { label: string; value: number; co
               <CountUp value={it.value} decimals={2} suffix="%" className={`font-display text-xl font-bold ${text}`} />
             </div>
             <div className="h-2.5 overflow-hidden rounded-full bg-muted">
-              <AnimatedBar value={it.value} className={bg} />
+              <AnimatedBar value={it.value} className={bg ?? "bg-primary"} />
             </div>
           </div>
         );

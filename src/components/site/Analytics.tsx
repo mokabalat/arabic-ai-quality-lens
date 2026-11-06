@@ -12,7 +12,7 @@ declare global {
 export function Analytics() {
   const { href } = useLocation();
   useEffect(() => {
-    const measurementId = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY;
+    const measurementId = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY'];
     if (!measurementId || !/^G-[A-Z0-9]+$/i.test(measurementId)) return;
     if (!window.gtag) {
       window.dataLayer = window.dataLayer || [];
