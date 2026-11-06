@@ -1,3 +1,5 @@
+import { AnimatedBar, CountUp } from "@/components/site/AnimatedData";
+
 const COLOR: Record<string, string> = {
   primary: "bg-primary text-primary",
   violet: "bg-violet text-violet",
@@ -13,10 +15,10 @@ export function ScoreBars({ items }: { items: { label: string; value: number; co
           <div key={it.label}>
             <div className="mb-2 flex items-baseline justify-between gap-4">
               <span className="text-sm">{it.label}</span>
-              <span className={`font-display text-xl font-bold ${text}`}>{it.value.toFixed(2)}%</span>
+              <CountUp value={it.value} decimals={2} suffix="%" className={`font-display text-xl font-bold ${text}`} />
             </div>
             <div className="h-2.5 overflow-hidden rounded-full bg-muted">
-              <div className={`h-full rounded-full ${bg}`} style={{ width: `${it.value}%` }} />
+              <AnimatedBar value={it.value} className={bg} />
             </div>
           </div>
         );

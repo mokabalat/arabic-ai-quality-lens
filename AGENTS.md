@@ -11,3 +11,5 @@
 - Site pages share header/footer/section components in src/components/site and page data in src/content/data.ts — keeps content edits in one place.
 - UAE context is a home-only section component; temporarily hidden page source is archived outside src/routes so it is not publicly routable and can be restored later.
 - Prerender every public content route listed in scripts/static-site.mjs and export only dist/client into dist/static after the build; Apache needs only HTML/assets while Lovable retains its normal development/server pipeline.
+- Scroll-driven numeric and bar animations use shared Framer Motion components with one-shot visibility and bounded targets, keeping data and accessibility intact.
+- Analytics uses the connector's public browser Measurement ID and tracks route changes client-side so static Apache hosting needs no server.

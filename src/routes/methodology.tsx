@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CTA, PageHero, Section } from "@/components/site/Layout";
 import { CRITERIA, SCALE } from "@/content/data";
 import slide3 from "@/assets/report/slide-3.jpg.asset.json";
+import { AnimatedBar, CountUp } from "@/components/site/AnimatedData";
 
 export const Route = createFileRoute("/methodology")({
   head: () => ({
@@ -72,8 +73,8 @@ function Methodology() {
           <div className="space-y-5">
             {CRITERIA.map((c) => (
               <div key={c.name}>
-                <div className="mb-2 flex justify-between"><span>{c.name}</span><span className="font-display font-bold text-primary">{c.weight}%</span></div>
-                <div className="h-2 rounded-full bg-muted"><div className="h-full rounded-full bg-primary" style={{ width: `${c.weight * 4}%` }} /></div>
+                <div className="mb-2 flex justify-between gap-4"><span>{c.name}</span><CountUp value={c.weight} suffix="%" className="font-display font-bold text-primary" /></div>
+                <div className="h-2 overflow-hidden rounded-full bg-muted"><AnimatedBar value={c.weight} /></div>
               </div>
             ))}
           </div>
