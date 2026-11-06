@@ -204,3 +204,8 @@
     background-color: color-mix(in oklab, var(--primary) 12%, transparent);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-spin-slow, .animate-spin-slower, .animate-pulse-dot { animation: none; }
+}

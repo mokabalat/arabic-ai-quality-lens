@@ -1,4 +1,5 @@
 import { Section } from "@/components/site/Layout";
+import { CountUp } from "@/components/site/AnimatedData";
 
 const STATS = [
   ["100+", "AI use cases deployed across 40+ Abu Dhabi Government entities", "DGE – Abu Dhabi"],
@@ -18,7 +19,7 @@ export function UAEContext() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {STATS.map(([n, t, s]) => (
             <div key={n} className="panel p-7 topline">
-              <p className="font-display text-5xl font-bold text-gradient">{n}</p>
+              <p className="font-display text-5xl font-bold text-gradient"><CountUp value={parseFloat(n)} suffix={n.endsWith("+") ? "+" : "%"} /></p>
               <p className="mt-4">{t}</p>
               <p className="mt-4 font-display text-[11px] tracking-widest text-muted-foreground">{s.toUpperCase()}</p>
             </div>
@@ -26,9 +27,9 @@ export function UAEContext() {
         </div>
         <figure className="mt-10 border-l-2 border-primary pl-6 md:pl-8">
           <blockquote className="text-xl md:text-2xl">
-            50% of government services in the UAE will be through AI agents, with continuous monitoring and audit — and AI must earn trust before it is given wider authority.
+            <CountUp value={50} suffix="%" /> of government services in the UAE will be through AI agents, with continuous monitoring and audit — and AI must earn trust before it is given wider authority.
           </blockquote>
-          <p className="mt-6 font-arabic text-lg text-primary" dir="rtl">50% من الخدمات الحكومية عبر وكلاء الذكاء الاصطناعي خلال عامين</p>
+          <p className="mt-6 font-arabic text-lg text-primary" dir="rtl"><CountUp value={50} suffix="%" /> من الخدمات الحكومية عبر وكلاء الذكاء الاصطناعي خلال عامين</p>
           <figcaption className="mt-2 text-sm text-muted-foreground">
             Source:{" "}
             <a href="https://www.albayan.ae/economy/1558024" target="_blank" rel="noreferrer" className="underline decoration-primary/60 underline-offset-4 hover:text-primary">

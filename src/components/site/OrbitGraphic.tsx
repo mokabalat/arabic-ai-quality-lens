@@ -1,4 +1,5 @@
 import { MessagesSquare, ShieldCheck, Target, UserCheck } from "lucide-react";
+import { ArabicTyping } from "@/components/site/AnimatedData";
 
 /** Futuristic orbit visual inspired by the methodology report cover */
 export function OrbitGraphic() {
@@ -13,7 +14,7 @@ export function OrbitGraphic() {
       <div className="absolute inset-0 rounded-full border-2 border-primary/70 animate-spin-slow" style={{ borderStyle: "dashed" }} />
       <div className="absolute inset-[10%] rounded-full border border-violet/40" />
       <div className="absolute inset-[30%] rounded-full border-2 border-primary/70 bg-card shadow-[var(--shadow-glow)]" />
-      <div className="absolute inset-[34%] rounded-full border-2 border-dashed border-primary/70 animate-spin-slower" />
+      <div className="absolute inset-[34%] rounded-full border border-dashed border-primary/70 animate-spin-slower" />
       <div className="absolute inset-[30%] flex flex-col items-center justify-center">
         <svg viewBox="0 0 64 64" className="h-1/2 w-1/2" fill="none" stroke="var(--color-primary)" strokeWidth="2">
           <path d="M32 8v48M20 16l12 10 12-10M18 32h28M20 48l12-10 12 10" strokeLinecap="round" />
@@ -29,9 +30,7 @@ export function OrbitGraphic() {
           <Icon className="h-6 w-6" />
         </div>
       ))}
-      <p className="absolute -bottom-10 left-0 right-0 text-center font-arabic text-xl text-muted-foreground" dir="rtl">
-        المعنى · الدقة · الثقة
-      </p>
+      <ArabicTyping />
     </div>
   );
 }

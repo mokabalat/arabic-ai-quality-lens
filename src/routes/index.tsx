@@ -5,6 +5,7 @@ import { OrbitGraphic } from "@/components/site/OrbitGraphic";
 import { CRITERIA, MODELS } from "@/content/data";
 import { ScoreBars } from "@/components/site/ScoreBars";
 import { UAEContext } from "@/components/site/UAEContext";
+import { CountUp } from "@/components/site/AnimatedData";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -134,7 +135,7 @@ function Home() {
                 <div className="flex-1">
                   <p className="font-display font-semibold">{c.name}</p>
                 </div>
-                <span className="font-display text-2xl font-bold text-violet">{c.weight}%</span>
+                <CountUp value={c.weight} suffix="%" className="font-display text-2xl font-bold text-violet" />
               </div>
             );
           })}
@@ -142,7 +143,7 @@ function Home() {
       </Section>
 
       {/* Pilot */}
-      <Section eyebrow="Pilot at a glance · October 2026" title="15 prompts. 3 models. 6 weighted criteria.">
+      <Section eyebrow="Pilot at a glance · October 2026" title={<><CountUp value={15} /> prompts. <CountUp value={3} /> models. <CountUp value={6} /> weighted criteria.</>}>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <p className="text-muted-foreground">
             Our completed Arabic LLM Evaluation Benchmark pilot scored three models on the same 15 Arabic and bilingual prompts, using a 0–4 scale. These are results from the specific pilot test set and configurations — not universal model rankings or certification.
