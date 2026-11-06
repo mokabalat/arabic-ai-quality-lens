@@ -6,3 +6,7 @@
 - [x] Configure a fully static Apache export; verify export safeguards and unchanged preview/navigation/contact flow.
 - [x] Audit static hosting dependencies and document the exact build command/output folder.- [x] Contact form via Web3Forms, new favicons, sharing tags.
 - [x] Add sitemap.xml for arabicaiquality.com.
+- [ ] Animate statistics and bars once on scroll, without exceeding data values.
+- [ ] Add Arabic typing animation and lighten the inner dotted ring.
+- [ ] Refresh shield favicons and verify their public availability.
+- [ ] Add Google Analytics using the saved Measurement ID while preserving static hosting.
